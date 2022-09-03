@@ -1,11 +1,21 @@
-//<BUTTONS (a.btn+tab)>
+// <BUTTONS (a.btn+tab)>
 // Снипет (HTML): btn
 
 .button {
-    display: inline-flex;
-    padding: 0px 0px;
-    @media (any-hover: hover) {
-        &:hover {
+    padding: 12px 41px;
+    font-weight: 600;
+    line-height: 140%;
+    color: #fff;
+    border: 1px solid #961914;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    &_red {
+        background-color: $redColor;
+        @media (any-hover: hover) {
+            &:hover {
+                background-color: #75110d;
+                border: 1px solid #75110d;
+            }
         }
     }
     &._fw {

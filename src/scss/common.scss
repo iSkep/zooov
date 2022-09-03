@@ -1,1 +1,15 @@
+/* stylelint-disable plugin/selector-bem-pattern */
 // Заголовки, общие БЭМ блоки и проче...
+.title {
+    font-family: "Oswald", sans-serif;
+    @include adaptiveValue("font-size", 46, 40);
+    font-weight: 700;
+    line-height: 130%;
+    letter-spacing: 0.02em;
+}
+
+.subtitle {
+    font-size: rem(18);
+    font-weight: 600;
+    line-height: 130%;
+}

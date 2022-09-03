@@ -1,5 +1,7 @@
 /* stylelint-disable max-line-length */
 /* stylelint-disable no-invalid-position-at-import-rule */
+/* stylelint-disable block-closing-brace-newline-after */
+
 @use "sass:math";
 
 // Подключение миксинов ===========================================================================================================================================================================================================================================================================
@@ -7,6 +9,8 @@
 
 // Подключение шрифтов ===========================================================================================================================================================================================================================================================================
 // &display=swap - добавить при подключении через плагин
+@import url("https://fonts.googleapis.com/css?family=Montserrat:regular,500,600,700&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Oswald:700&display=swap");
 
 // Подключить если есть локальные файлы шрифтов
 // @import "fonts/fonts";
@@ -16,22 +20,24 @@
 // @import "fonts/icons";
 
 // Шрифт по умолчанию ==============================================================================================================================================================================================================================================================================
-$fontFamily: "";
-$fontSize: rem(14); // где 14(px) - размер шрифта по умолчанию из макета
+$fontFamily: "Montserrat";
+$fontSize: rem(16); // где 14(px) - размер шрифта по умолчанию из макета
 
 // Основные цвета
 $mainColor: #000; // Цвет шрифта по умолчанию
+$greyColor: #434242;
+$redColor: #961914;
 
 // НАСТРОЙКИ ===============================================================================================================================================================================================================================================================================================
 // Минимальная ширина страницы
-$minWidth: 320;
+$minWidth: 375;
 // Ширина полотна (макета)
-$maxWidth: 1920;
+$maxWidth: 1440;
 // Ширина ограничивающего контейнера (0 = нет ограничения)
-$maxWidthContainer: 1170;
+$maxWidthContainer: 1200;
 // Общий отступ у контейнера
 // (30 = по 15px слева и справа, 0 = нет отступа)
-$containerPadding: 30;
+$containerPadding: 40;
 
 // Ширина срабатывания первого брейкпоинта
 $containerWidth: $maxWidthContainer + $containerPadding;
@@ -83,15 +89,15 @@ body {
 Например header__container, main__container и т.д.
 Снипет (HTML): cnt
 */
-@if ($responsiveType == 1) {
+@if $responsiveType == 1 {
     // Отзывчивая
     [class*="__container"] {
-        @if ($maxWidthContainer > 0) {
+        @if $maxWidthContainer > 0 {
             box-sizing: content-box;
             max-width: rem($maxWidthContainer);
             margin: 0 auto;
         }
-        @if ($containerPadding > 0) {
+        @if $containerPadding > 0 {
             padding: 0 rem(math.div($containerPadding, 2));
         }
     }
@@ -99,11 +105,11 @@ body {
     // По брейк-поинтам
     [class*="__container"] {
         margin: 0 auto;
-        @if ($maxWidthContainer > 0) {
+        @if $maxWidthContainer > 0 {
             box-sizing: content-box;
             max-width: rem($maxWidthContainer);
         } @else {
-            @if ($containerPadding > 0) {
+            @if $containerPadding > 0 {
                 padding: 0 rem(math.div($containerPadding, 2));
             }
         }
@@ -115,7 +121,7 @@ body {
         }
         @media (max-width: $mobile) {
             max-width: none;
-            @if ($containerPadding > 0 and $maxWidthContainer > 0) {
+            @if $containerPadding > 0 and $maxWidthContainer > 0 {
                 padding: 0 rem(math.div($containerPadding, 2));
             }
         }
@@ -131,6 +137,8 @@ body {
 
 // Подключение стилей отдельных блоков
 @import "header";
+@import "intro";
+@import "about";
 @import "footer";
 
 // Подключение стилей отдельных страниц

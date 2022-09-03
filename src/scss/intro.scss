@@ -1,0 +1,53 @@
+.intro {
+    position: relative;
+    z-index: 0;
+    padding-top: rem(226);
+    padding-bottom: rem(20);
+    background: url("../img/intro/intro-bg.jpg") center/cover no-repeat;
+    &::before {
+        content: "";
+        position: absolute;
+        @include adaptiveValue("right", 30, 0);
+        @include adaptiveValue("bottom", 100, 10);
+        @include adaptiveValue("height", 548, 334);
+        @include adaptiveValue("width", 168, 102);
+        background: url("../img/intro/zooov.svg") center/cover no-repeat;
+    }
+    &__container {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 0 rem(19);
+    }
+    &__title {
+        @include adaptiveValue("margin-bottom", 10, 20);
+        @include adaptiveValue("max-width", 490, 340);
+        @include adaptiveValue("font-size", 54, 44);
+        color: #fff;
+        background-image: url("../img/intro/ellipse_animated.svg");
+        background-repeat: no-repeat;
+        background-position-x: 75%;
+        background-position-y: 53%;
+        @include adaptiveValue("background-size", 260, 180);
+        @media (max-width: $tablet) {
+            background-position-x: 80%;
+        }
+        @media (max-width: $mobile) {
+            background-position-x: 0;
+            background-position-y: 56%;
+        }
+        span {
+            display: block;
+            @media (max-width: $mobile) {
+                display: inline-block;
+            }
+        }
+    }
+    &__desc {
+        @include adaptiveValue("max-width", 375, 230);
+        @include adaptiveValue("margin-bottom", 25, 48);
+        @include adaptiveValue("font-size", 20, 18);
+        line-height: 140%;
+        color: #fff;
+    }
+}

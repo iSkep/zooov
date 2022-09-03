@@ -7,7 +7,7 @@
 // Подключаем слайдер Swiper из node_modules
 // При необходимости подключаем дополнительные модули слайдера, указывая их в {} через запятую
 // Пример: { Navigation, Autoplay }
-import Swiper, { Navigation } from 'swiper';
+import Swiper, { Pagination, Autoplay } from 'swiper';
 /*
 Основниые модули слайдера:
 Navigation, Pagination, Autoplay, 
@@ -17,9 +17,9 @@ EffectFade, Lazy, Manipulation
 
 // Стили Swiper
 // Базовые стили
-import "../../scss/base/swiper.scss";
+// import "../../scss/base/swiper.scss";
 // Полный набор стилей из scss/libs/swiper.scss
-// import "../../scss/libs/swiper.scss";
+import "../../scss/libs/swiper.scss";
 // Полный набор стилей из node_modules
 // import 'swiper/css';
 
@@ -32,36 +32,38 @@ function initSliders() {
         new Swiper('.swiper', { // Указываем скласс нужного слайдера
             // Подключаем модули слайдера
             // для конкретного случая
-            modules: [Navigation],
-            observer: true,
-            observeParents: true,
-            slidesPerView: 1,
-            spaceBetween: 0,
-            autoHeight: true,
+            modules: [Pagination, Autoplay],
             speed: 800,
-
+            autoHeight: true,
+            autoplay: {
+                delay: 3000,
+                disableOnInteraction: true,
+            },
+            
             //touchRatio: 0,
             //simulateTouch: false,
-            //loop: true,
+
             //preloadImages: false,
             //lazy: true,
 
-            /*
-            // Эффекты
-            effect: 'fade',
-            autoplay: {
-                delay: 3000,
-                disableOnInteraction: false,
-            },
-            */
+            
 
             // Пагинация
-            /*
             pagination: {
                 el: '.swiper-pagination',
                 clickable: true,
             },
-            */
+
+            breakpoints: {
+                320: {
+                    slidesPerView: 1,
+                },
+        
+                600: {
+                    slidesPerView: 2,
+                    autoplay: false,
+                },
+            },
 
             // Скроллбар
             /*
@@ -72,10 +74,12 @@ function initSliders() {
             */
 
             // Кнопки "влево/вправо"
+            /*
             navigation: {
                 prevEl: '.swiper-button-prev',
                 nextEl: '.swiper-button-next',
             },
+            */
 
             // Брейкпоинты
             /*

@@ -1,0 +1,154 @@
+.rations {
+    margin-bottom: rem(180);
+    &__content {
+        display: flex;
+        @include adaptiveValue("margin-bottom", 70, 30);
+        @media (max-width: $tablet) {
+            flex-direction: column;
+        }
+    }
+    &__title {
+        position: relative;
+        flex: 1 0 auto;
+        height: 80px;
+        padding: 5px 96px 0 0;
+        @include adaptiveValue("margin-bottom", 20, 0);
+        @media (max-width: $mobileSmall) {
+            padding: 5px 0 0 0;
+        }
+        &::before {
+            content: "";
+            position: absolute;
+            top: -3px;
+            @include adaptiveValue("left", 175, 135);
+            z-index: -1;
+            width: 180px;
+            height: 79px;
+            background-image: url("../img/rations/ellipse.svg");
+            background-repeat: no-repeat;
+            background-position-x: 72%;
+            background-position-y: top;
+            @include adaptiveValue("background-size", 180, 156);
+        }
+    }
+    &__desc {
+        line-height: 140%;
+        @media (max-width: $mobileSmall) {
+            display: none;
+        }
+    }
+    &__slider {
+        @include adaptiveValue("margin-bottom", 80, 40);
+    }
+    &__button {
+        color: $redColor;
+    }
+    &__calculation {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: rem(50) rem(100) rem(50) rem(52);
+        background: $pinkColor url("../img/wave-line.svg") center no-repeat;
+        @media (max-width: $tablet) {
+            flex-direction: column;
+            padding: rem(30) rem(24) rem(30) rem(24);
+        }
+        p {
+            max-width: 660px;
+            margin-right: rem(20);
+            @include adaptiveValue("font-size", 28, 20);
+            font-weight: 500;
+            line-height: 140%;
+            @media (max-width: $tablet) {
+                margin-right: 0;
+                margin-bottom: 24px;
+                text-align: center;
+            }
+        }
+    }
+}
+
+.slider-rations {
+    min-width: 0;
+    padding-bottom: 48px;
+    &__slide {
+        flex: 0 0 280px;
+        &:not(.swiper-slide-active) {
+            @media (max-width: $mobileSmall) {
+                opacity: 0.4;
+            }
+        }
+    }
+    &__card {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    &__image {
+        position: relative;
+        width: 280px;
+        height: 335px;
+        margin-bottom: rem(45);
+        img {
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            margin: auto;
+            object-fit: cover;
+        }
+    }
+    &__title {
+        margin-bottom: rem(7);
+        font-weight: 700;
+        &-link {
+            position: relative;
+            &::after {
+                content: "";
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                height: 2px;
+                background: $redColor;
+                transition: transform 0.5s;
+                transform: scaleX(0);
+                transform-origin: right;
+            }
+            @media (any-hover: hover) {
+                &:hover {
+                    &::after {
+                        transform: scaleX(1);
+                        transform-origin: left;
+                    }
+                }
+            }
+        }
+    }
+    &__subtitle {
+        margin-bottom: rem(20);
+        font-size: rem(13);
+        color: $lightgreyColor;
+    }
+    &__desc {
+        margin-bottom: rem(12);
+        font-size: rem(14);
+        line-height: 140%;
+        color: $greyColor;
+    }
+    &__weight {
+        margin-bottom: rem(25);
+        font-size: rem(13);
+        color: $lightgreyColor;
+    }
+    .swiper-pagination-bullet {
+        background-color: $pinkColor;
+        opacity: 1;
+    }
+    .swiper-pagination-bullet-active {
+        background-color: $redColor;
+    }
+}

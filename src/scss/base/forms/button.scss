@@ -1,24 +1,27 @@
-// <BUTTONS (a.btn+tab)>
-// Снипет (HTML): btn
-
 .button {
     padding: 12px 41px;
     font-weight: 600;
     line-height: 140%;
     color: #fff;
-    border: 1px solid #961914;
+    border: 1px solid $redColor;
     border-radius: 8px;
-    transition: all 0.3s ease;
+    transition: background-color 0.3s ease, border 0.3s ease, transform 0.3s ease;
+    @media (any-hover: hover) {
+        &:hover {
+            background-color: $pinkColor;
+            border: 1px solid $pinkColor;
+        }
+    }
     &_red {
         background-color: $redColor;
         @media (any-hover: hover) {
             &:hover {
-                background-color: #75110d;
-                border: 1px solid #75110d;
+                background-color: $darkredColor;
+                border: 1px solid $darkredColor;
             }
         }
     }
-    &._fw {
-        width: 100%;
+    &:active {
+        transform: scale(0.9);
     }
 }

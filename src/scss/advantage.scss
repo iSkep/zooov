@@ -1,0 +1,65 @@
+.advantage {
+    padding-bottom: rem(80);
+    background: url("../img/advantage/wave-line_pink.svg") 0 0 / 100% 100% no-repeat;
+    @media (max-width: $tablet) {
+        background: url("../img/advantage/wave-line_double.svg") 0 60px / 100% 72% no-repeat;
+    }
+    &__title {
+        position: relative;
+        display: inline-block;
+        margin-bottom: rem(57);
+        &::before {
+            content: "";
+            position: absolute;
+            right: -28px;
+            bottom: -16px;
+            width: 37px;
+            height: 33px;
+            background: url("../img/advantage/splash.svg") no-repeat;
+            transform: rotate(164deg);
+        }
+    }
+    &__list {
+        display: flex;
+        flex-wrap: wrap;
+        column-gap: 40px;
+        @media (max-width: $tablet) {
+            row-gap: 40px;
+        }
+    }
+    &__item {
+        position: relative;
+        flex: 0 0 calc(25% - 30px);
+        &:last-child {
+            &::before {
+                content: "";
+                position: absolute;
+                top: -28px;
+                left: -26px;
+                width: 37px;
+                height: 33px;
+                background: url("../img/advantage/splash.svg") no-repeat;
+                @media (max-width: 575.98px) {
+                    top: -20px;
+                    left: 20px;
+                    transform: rotate(90deg);
+                }
+            }
+        }
+        @media (max-width: $tablet) {
+            flex: 0 0 calc(50% - 20px);
+        }
+        @media (max-width: 575.98px) {
+            flex: 0 0 100%;
+        }
+    }
+    &__icon {
+        margin-bottom: rem(20);
+    }
+    &__subtitle {
+        margin-bottom: rem(8);
+    }
+    &__desc {
+        line-height: 140%;
+    }
+}

@@ -450,6 +450,7 @@
         "color-no-invalid-hex": [true, {
             "message": "Ошибка в написании HEX-цвета"
         }],
+        "no-missing-end-of-source-newline": null,
         "no-duplicate-at-import-rules": [true, {
             "message": "Не должно быть повторного импорта файла"
         }],

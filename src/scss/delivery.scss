@@ -1,25 +1,13 @@
-.advantage {
+.delivery {
+    @include adaptiveValue("padding-top", 180, 80);
     @include adaptiveValue("padding-bottom", 180, 80);
-    background: url("../img/advantage/wave-line_pink.svg") 0 0 / 100% 78% no-repeat;
-    @media (max-width: $tablet) {
-        background: url("../img/advantage/wave-line_double.svg") 0 60px / 100% 72% no-repeat;
-    }
     &__title {
         position: relative;
         display: inline-block;
-        @include adaptiveValue("margin-bottom", 57, 40);
-        &::before {
-            content: "";
-            position: absolute;
-            right: -28px;
-            bottom: -16px;
-            width: 37px;
-            height: 33px;
-            background: url("../img/splash.svg") no-repeat;
-            transform: rotate(164deg);
-        }
+        @include adaptiveValue("margin-bottom", 80, 40);
     }
     &__list {
+        position: relative;
         display: flex;
         flex-wrap: wrap;
         column-gap: 40px;
@@ -28,11 +16,33 @@
         }
         @media (max-width: em(575.98)) {
             flex-direction: column;
+            padding-left: 30px;
+            &::before {
+                content: "";
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 20px;
+                height: 100%;
+                background: url("../img/delivery/arrow_mobile.svg") left top/contain no-repeat;
+            }
         }
     }
     &__item {
         position: relative;
         flex: 0 0 calc(25% - 30px);
+        &:not(:last-child)::after {
+            content: "";
+            position: absolute;
+            top: 13px;
+            right: 20px;
+            width: 140px;
+            height: 15px;
+            background: url("../img/delivery/arrow.svg") center/contain no-repeat;
+            @media (max-width: em(575.98)) {
+                display: none;
+            }
+        }
         &:last-child {
             &::before {
                 content: "";
@@ -57,6 +67,8 @@
         }
     }
     &__icon {
+        width: 40px;
+        height: 40px;
         margin-bottom: rem(20);
     }
     &__subtitle {
@@ -64,5 +76,10 @@
     }
     &__desc {
         line-height: 140%;
+    }
+    &__button {
+        display: inline-block;
+        color: $redColor;
+        border-bottom: 1px solid $redColor;
     }
 }

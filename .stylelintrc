@@ -6,6 +6,8 @@
     ],
     "rules": {
         "scss/double-slash-comment-empty-line-before": null,
+        "no-missing-end-of-source-newline": null,
+        "import-notation": null,
         "scss/dollar-variable-pattern": null, 
         "selector-class-pattern": null,
         "rule-empty-line-before": null,
@@ -446,7 +448,6 @@
         "color-no-invalid-hex": [true, {
             "message": "Ошибка в написании HEX-цвета"
         }],
-        "no-missing-end-of-source-newline": null,
         "no-duplicate-at-import-rules": [true, {
             "message": "Не должно быть повторного импорта файла"
         }],

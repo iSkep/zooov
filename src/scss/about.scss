@@ -62,7 +62,7 @@
 .slider-about {
     min-width: 0;
     padding-bottom: rem(40);
-    @media (max-width: em(1199.98px)) {
+    @media (max-width: em(1199.98)) {
         padding-bottom: rem(10);
     }
     &__slide {
@@ -72,7 +72,7 @@
         }
         &:last-child {
             justify-content: end;
-            @media (max-width: em(1199.98px)) {
+            @media (max-width: em(1199.98)) {
                 justify-content: center;
             }
         }
@@ -87,7 +87,7 @@
     }
     &__list {
         column-count: 2;
-        @media (max-width: em(1199.98px)) {
+        @media (max-width: em(1199.98)) {
             column-count: auto;
         }
     }

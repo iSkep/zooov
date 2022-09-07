@@ -1,6 +1,6 @@
 .advantage {
-    padding-bottom: rem(80);
-    background: url("../img/advantage/wave-line_pink.svg") 0 0 / 100% 100% no-repeat;
+    @include adaptiveValue("padding-bottom", 180, 80);
+    background: url("../img/advantage/wave-line_pink.svg") 0 0 / 100% 78% no-repeat;
     @media (max-width: $tablet) {
         background: url("../img/advantage/wave-line_double.svg") 0 60px / 100% 72% no-repeat;
     }
@@ -15,7 +15,7 @@
             bottom: -16px;
             width: 37px;
             height: 33px;
-            background: url("../img/advantage/splash.svg") no-repeat;
+            background: url("../img/splash.svg") no-repeat;
             transform: rotate(164deg);
         }
     }
@@ -38,8 +38,8 @@
                 left: -26px;
                 width: 37px;
                 height: 33px;
-                background: url("../img/advantage/splash.svg") no-repeat;
-                @media (max-width: 575.98px) {
+                background: url("../img/splash.svg") no-repeat;
+                @media (max-width: em(575.98px)) {
                     top: -20px;
                     left: 20px;
                     transform: rotate(90deg);
@@ -49,7 +49,7 @@
         @media (max-width: $tablet) {
             flex: 0 0 calc(50% - 20px);
         }
-        @media (max-width: 575.98px) {
+        @media (max-width: em(575.98px)) {
             flex: 0 0 100%;
         }
     }

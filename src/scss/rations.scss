@@ -1,5 +1,5 @@
 .rations {
-    margin-bottom: rem(180);
+    @include adaptiveValue("margin-bottom", 180, 80);
     &__content {
         display: flex;
         @include adaptiveValue("margin-bottom", 70, 30);

@@ -1,0 +1,94 @@
+.love {
+    position: relative;
+    padding: 80px 0;
+    background: #fff4f3 url("../img/love/wave-lines-vertical.svg") left top no-repeat;
+    @media (max-width: $tablet) {
+        padding: 40px 0;
+        background: #fff4f3 url("../img/love/wave-lines-vertical.svg") 70% 120% no-repeat;
+    }
+    &__container {
+        display: flex;
+        justify-content: center;
+        @media (max-width: $tablet) {
+            flex-direction: column-reverse;
+            align-items: center;
+        }
+    }
+    &__images {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        @include adaptiveValue("width", 556, 335);
+        height: 100%;
+        margin-right: 56px;
+        @media (max-width: $tablet) {
+            margin: 0;
+        }
+    }
+    &__wrap {
+        position: relative;
+        &:nth-child(2) {
+            position: relative;
+            align-self: flex-end;
+            @include adaptiveValue("margin-top", -207, -113);
+        }
+    }
+    &__image-left {
+        @include adaptiveValue("width", 475, 261);
+        @include adaptiveValue("height", 562, 309);
+    }
+    &__image-right {
+        @include adaptiveValue("width", 362, 202);
+        @include adaptiveValue("height", 389, 217);
+    }
+    &__sticker-dog {
+        position: absolute;
+        @include adaptiveValue("bottom", -96, -48);
+        @include adaptiveValue("left", -55, 0);
+        @include adaptiveValue("width", 183, 100);
+        @include adaptiveValue("height", 183, 100);
+    }
+    &__sticker-heart {
+        position: absolute;
+        @include adaptiveValue("top", -70, -38);
+        @include adaptiveValue("right", 21, 23);
+        @include adaptiveValue("width", 120, 66);
+        @include adaptiveValue("height", 120, 65);
+    }
+    &__content {
+        @include adaptiveValue("width", 520, 324);
+        padding-top: 40px;
+        margin-right: 65px;
+        @media (max-width: $tablet) {
+            width: 100%;
+            padding-top: 0;
+            margin: 0 0 75px 0;
+        }
+    }
+    &__title {
+        position: relative;
+        @include adaptiveValue("width", 440, 335);
+        @include adaptiveValue("margin-bottom", 40, 24);
+        &::before {
+            content: "";
+            position: absolute;
+            top: 40px;
+            right: -25px;
+            width: 37px;
+            height: 33px;
+            background: url("../img/splash.svg") no-repeat;
+            transform: rotate(164deg);
+            @media (max-width: em(1122.98)) {
+                @include adaptiveValue("top", 100, 86);
+                @include adaptiveValue("right", 50, -7);
+            }
+        }
+    }
+    &__text {
+        line-height: 130%;
+        color: $greyColor;
+        &:not(:last-child) {
+            margin-bottom: 22px;
+        }
+    }
+}

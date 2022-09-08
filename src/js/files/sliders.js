@@ -102,20 +102,4 @@ window.addEventListener("load", function (e) {
     // Запуск инициализации слайдеров
     initSliders();
 
-    // Добавление нижнего отступа при наличии пагинации
-    // (сделано через js на случай добавления доп. слайдов)
-    const sliderAboutPagination = document.querySelector(".slider-about__pagination");
-    const sliderAboutWrapper = document.querySelector(".slider-about__wrapper");
-
-    const sliderRationsPagination = document.querySelector(".slider-rations__pagination");
-    const sliderRationsWrapper = document.querySelector(".slider-rations__wrapper");
-
-    function addPaginationPadding(paginationSelector, sliderWrapper) {
-        if (!paginationSelector.classList.contains('swiper-pagination-lock')) {
-            sliderWrapper.style.paddingBottom="40px";
-        }
-    }
-
-    addPaginationPadding(sliderAboutPagination, sliderAboutWrapper);
-    addPaginationPadding(sliderRationsPagination, sliderRationsWrapper);
 });

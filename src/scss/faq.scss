@@ -1,0 +1,72 @@
+.faq {
+    @include adaptiveValue("padding-bottom", 180, 80);
+    &__container {
+        display: flex;
+        @media (max-width: $tablet) {
+            flex-direction: column;
+        }
+    }
+    &__title {
+        flex: 1 0 auto;
+        margin-right: rem(76);
+        @media (max-width: $tablet) {
+            margin-bottom: rem(40);
+        }
+    }
+    &__spoilers {
+        flex: 0 1 auto;
+    }
+}
+
+.spoilers-faq {
+    &__item {
+        padding: 32px 0;
+        &:first-child {
+            padding-top: 0;
+        }
+        &:not(:last-child) {
+            border-bottom: 1px solid #e5e5e5;
+        }
+    }
+    &__button {
+        position: relative;
+        width: 100%;
+        padding-right: rem(100);
+        @include adaptiveValue("padding-right", 100, 40);
+        @include adaptiveValue("font-size", 18, 16);
+        font-weight: 600;
+        line-height: 140%;
+        text-align: left;
+        &::before {
+            content: "";
+            position: absolute;
+            top: 10px;
+            right: 5px;
+            width: 2px;
+            height: 20px;
+            background-color: $redColor;
+            transition: transform 0.3s ease-out;
+            transform: translate(-9px, -50%);
+            ._spoiler-active & {
+                transform: translate(-9px, -50%) rotate(270deg);
+            }
+        }
+        &::after {
+            content: "";
+            position: absolute;
+            top: 10px;
+            right: 5px;
+            width: 20px;
+            height: 2px;
+            background-color: $redColor;
+            transition: transform 0.3s ease-out;
+            transform: translate(0, -50%);
+        }
+    }
+    &__body {
+        padding-top: rem(15);
+        @include adaptiveValue("padding-right", 55, 0);
+        @include adaptiveValue("font-size", 16, 14);
+        line-height: 140%;
+    }
+}

@@ -1,25 +1,25 @@
-//<INPUT>
+// <INPUT>
 // Снипет (HTML): inp
 input[type="text"],
 input[type="email"],
 input[type="tel"],
 textarea {
-    -webkit-appearance: none;
-    -moz-appearance: none;
     appearance: none;
-}
-.input {
-    border-radius: 0 !important;
-    width: 100%;
-    display: block;
-    padding: 0px 20px;
-    border: 1px solid #eee;
-    &._form-focus {
-    }
-    &._form-error {
-    }
-}
-textarea.input {
     resize: none;
-    padding: 0px 0px;
+}
+
+.input {
+    display: block;
+    width: 100%;
+    font-size: rem(14);
+    border-radius: 8px;
+    transition: background-color 0.3s;
+    @media (any-hover: hover) {
+        &:hover {
+            background-color: rgba(234, 209, 208, 0.2);
+        }
+    }
+    &:focus {
+        outline: 1px solid #fff;
+    }
 }

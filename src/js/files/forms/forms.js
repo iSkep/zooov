@@ -24,6 +24,9 @@ export function formFieldsInit(options = { viewPass: false }) {
     }
     document.body.addEventListener("focusin", function (e) {
         const targetElement = e.target;
+        // дополнительно отбираем ближайший label
+        const label = targetElement.closest('div').querySelector('label');
+        
         if ((targetElement.tagName === 'INPUT' || targetElement.tagName === 'TEXTAREA')) {
             if (targetElement.dataset.placeholder) {
                 targetElement.placeholder = '';
@@ -31,12 +34,16 @@ export function formFieldsInit(options = { viewPass: false }) {
             if (!targetElement.hasAttribute('data-no-focus-classes')) {
                 targetElement.classList.add('_form-focus');
                 targetElement.parentElement.classList.add('_form-focus');
+                // доп. добавляем класс активности к label
+                label.classList.add('_form-focus');
             }
             formValidate.removeError(targetElement);
         }
     });
     document.body.addEventListener("focusout", function (e) {
         const targetElement = e.target;
+        // дополнительно отбираем ближайший label
+        const label = targetElement.closest('div').querySelector('label');
         if ((targetElement.tagName === 'INPUT' || targetElement.tagName === 'TEXTAREA')) {
             if (targetElement.dataset.placeholder) {
                 targetElement.placeholder = targetElement.dataset.placeholder;
@@ -44,6 +51,11 @@ export function formFieldsInit(options = { viewPass: false }) {
             if (!targetElement.hasAttribute('data-no-focus-classes')) {
                 targetElement.classList.remove('_form-focus');
                 targetElement.parentElement.classList.remove('_form-focus');
+
+                // удаляем класс активности, если input пуст
+                if (label.classList.contains('_form-focus') && targetElement.value.trim() === '') {
+                    label.classList.remove('_form-focus')
+                }
             }
             // Моментальная валидация
             if (targetElement.hasAttribute('data-validate')) {

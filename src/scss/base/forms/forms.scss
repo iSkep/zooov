@@ -1,19 +1,80 @@
 // <FORM>
-// Снипет (HTML):
-.form {
-    &__row {
+.contact-form {
+    &__title {
+        margin-bottom: rem(4);
+        font-size: rem(20);
+        font-weight: 600;
+        line-height: 140%;
+        color: #fff;
     }
-    &__column {
+    &__text {
+        margin-bottom: rem(34);
+        line-height: 140%;
+        color: #fff;
     }
-    &__line {
+    &__fields {
+        display: flex;
+        flex-wrap: wrap;
+        row-gap: 16px;
+        column-gap: 24px;
+        justify-content: space-between;
+    }
+    &__item {
+        position: relative;
+        flex: 0 0 calc(50% - 12px);
+        @media (max-width: $tablet) {
+            flex: 0 0 100%;
+        }
+        &_large {
+            flex: 0 0 100%;
+        }
     }
     &__input {
+        padding: 22px 14px 6px 14px;
+        color: #fff;
+        background-color: rgba(255, 255, 255, 0.05);
+        border: 1px solid rgba(255, 255, 255, 0.5);
+    }
+    &__textarea {
+        height: 122px;
+        padding: 8px 15px;
+        color: #fff;
+        background-color: rgba(255, 255, 255, 0.05);
+        border: 1px solid rgba(255, 255, 255, 0.5);
+        &::placeholder {
+            color: rgba(255, 255, 255, 0.6);
+        }
+    }
+    &__label {
+        position: absolute;
+        top: 14px;
+        left: 15px;
+        font-size: rem(14);
+        color: rgba(255, 255, 255, 0.6);
+        transition: top 0.3s, font-size 0.3s;
+        &._form-focus {
+            top: 6px;
+            font-size: rem(12);
+        }
+    }
+    &__check {
+        display: flex;
+        align-items: center;
+        max-width: 200px;
+        cursor: pointer;
+        @media (max-width: $tablet) {
+            max-width: 100%;
+            margin-bottom: 16px;
+        }
     }
     &__button {
-    }
-    &__error {
+        flex: 0 0 214px;
+        @media (max-width: $mobileSmall) {
+            flex: 0 0 100%;
+        }
     }
 }
+
 // </FORM>
 
 // <BUTTONS>
@@ -22,11 +83,11 @@
 
 // <INPUTS>
 // Снипет (HTML): inp
-// @import "input";
+@import "input";
 
 // <CHECK>
 // Снипет (HTML): chk
-// @import "checkbox";
+@import "checkbox";
 
 // <RADIO>
 // Снипет (HTML): opt

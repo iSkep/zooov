@@ -6,6 +6,7 @@
     ],
     "rules": {
         "scss/double-slash-comment-empty-line-before": null,
+        "no-invalid-position-at-import-rule": null,
         "no-missing-end-of-source-newline": null,
         "import-notation": null,
         "scss/dollar-variable-pattern": null, 

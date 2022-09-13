@@ -2,13 +2,13 @@
     @include adaptiveValue("padding-bottom", 180, 80);
     &__container {
         display: flex;
+        column-gap: rem(76);
         @media (max-width: $tablet) {
             flex-direction: column;
         }
     }
     &__title {
         flex: 1 0 auto;
-        margin-right: rem(76);
         @media (max-width: $tablet) {
             margin-bottom: rem(40);
         }

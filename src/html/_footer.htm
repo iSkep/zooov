@@ -1,4 +1,46 @@
 <footer class="footer">
     <div class="footer__container">
+        <section class="footer__contacts contacts">
+            <div class="contacts__info">
+                <h2 class="contacts__title title">Контакты</h2>
+                <p class="contacts__text">Вы всегда можете с нами связаться по телефону или в мессенджерах</p>
+                <a class="contacts__phone" href="tel:+79000000000">+7 (900)000-00-00</a>
+                <a href="#" class="contacts__link contacts__link_wa">Написать в WhatsApp</a>
+                <a href="#" class="contacts__link contacts__link_tg">Написать в Telegram</a>
+                <p class="contacts__text">Подписывайтесь на наш <a href="#" class="contacts__link contacts__link_ig">Instagram</a> и следите за новостями</p>
+            </div>
+            <form action="#" class="contacts__form contact-form">
+                <h3 class="contact-form__title">Остались вопросы?</h3>
+                <p class="contact-form__text">Напишите нам и мы обязательно подробно на них ответим.</p>
+                <div class="contact-form__fields">
+                    <div class="contact-form__item">
+                        <input class="contact-form__input input" id="input-name" autocomplete="off" type="text" name="name" required>
+                        <label for="input-name" class="contact-form__label">Имя</label>
+                    </div>
+                    <div class="contact-form__item">
+                        <input class="contact-form__input input" id="input-email" autocomplete="off" type="email" name="email" data-required="email" required>
+                        <label for="input-email" class="contact-form__label">Email</label>
+                    </div>
+                    <div class="contact-form__item contact-form__item_large">
+                        <textarea class="contact-form__textarea input" autocomplete="off" name="message" placeholder="Ваш вопрос..." data-placeholder-nohide data-no-focus-classes required></textarea>
+                    </div>
+                    <div class="contact-form__check checkbox">
+                        <input class="checkbox__input visually-hidden" id="footer-checkbox" type="checkbox" value="1" name="accept" data-no-focus-classes required>
+                        <label for="footer-checkbox" class="checkbox__label">
+                            <span class="checkbox__text">Даю согласие на обработку персональных данных</span>
+                        </label>
+                    </div>
+
+                    <button type="submit" class="contact-form__button button button_pink">Отправить</button>
+                </div>
+            </form>   
+        </section>
+    </div>
+    <div class="footer__copyright">
+        <div class="footer__container">
+            <p class="footer__address">ИП Коваленко Евгений Геннадьевич ИНН784215731801, адрес производства г. Санкт-Петербург 17-я линия В.О 66, пом. 2/07</p>
+            <a class="footer__link" href="#">Публичная оферта</a>
+            <a class="footer__link" href="#">Политика конфеденциальности</a>
+        </div>
     </div>
 </footer>

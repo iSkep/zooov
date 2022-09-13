@@ -14,6 +14,7 @@ body::after {
 .popup-show body::after {
     opacity: 1;
 }
+
 .popup {
     position: fixed;
     top: 0;
@@ -24,36 +25,72 @@ body::after {
     pointer-events: none;
     visibility: hidden;
     transition: visibility 0.8s ease 0s;
-}
-.popup_show {
-    z-index: 150;
-    overflow: auto;
-    pointer-events: auto;
-    visibility: visible;
-}
-.popup__content {
-    width: 100%;
-    max-width: 900px;
-    padding: 20px;
-    visibility: hidden;
-    background-color: #eee;
-    border-radius: 20px;
-    transition: transform 0.3s ease 0s;
-    transform: scale(0);
-    .lock & {
-        visibility: visible;
+    &__content {
+        position: relative;
+        padding: 56px;
+        visibility: hidden;
+        background-color: #eee;
+        transition: transform 0.3s ease 0s;
+        transform: scale(0);
+        // .lock & {
+        //     visibility: visible;
+        // }
     }
-}
-.popup_show .popup__content {
-    visibility: visible;
-    transform: scale(1);
-}
-.popup__wrapper {
-    display: flex;
-    flex: 1 1 auto;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    min-height: 100%;
+    &_show {
+        z-index: 150;
+        overflow: auto;
+        pointer-events: auto;
+        visibility: visible;
+        & .popup__content {
+            visibility: visible;
+            transform: scale(1);
+        }
+    }
+    &__wrapper {
+        display: flex;
+        flex: 1 1 auto;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        min-height: 100%;
+    }
+    &__close {
+        position: absolute;
+        top: 16px;
+        right: 16px;
+        width: rem(32);
+        height: rem(32);
+        &::before,
+        &::after {
+            content: "";
+            position: absolute;
+            right: 0;
+            width: 100%;
+            height: rem(2);
+            background-color: $mainColor;
+        }
+        &::before {
+            top: calc(50% - rem(1));
+            transform: rotate(-45deg);
+        }
+        &::after {
+            bottom: calc(50% - rem(1));
+            transform: rotate(45deg);
+        }
+    }
+    &__title {
+        margin-bottom: rem(16);
+        font-family: "Oswald", sans-serif;
+        font-size: rem(40);
+        font-weight: 700;
+        line-height: 130%;
+        color: $redColor;
+        text-align: center;
+        letter-spacing: 0.05rem;
+    }
+    &__text {
+        font-size: 15px;
+        line-height: 130%;
+    }
 }

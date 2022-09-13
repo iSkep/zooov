@@ -1,6 +1,6 @@
 .about {
     @include adaptiveValue("padding-top", 180, 80);
-    @include adaptiveValue("padding-bottom", 180, 80);
+    @include adaptiveValue("padding-bottom", 140, 40);
     &__container {
         display: grid;
         grid-template-columns: 1fr 1fr;

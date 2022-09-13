@@ -1,4 +1,5 @@
 .faq {
+    padding-top: rem(40);
     @include adaptiveValue("padding-bottom", 180, 80);
     &__container {
         display: flex;

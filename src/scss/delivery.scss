@@ -1,6 +1,6 @@
 .delivery {
     @include adaptiveValue("padding-top", 180, 80);
-    @include adaptiveValue("padding-bottom", 180, 80);
+    @include adaptiveValue("padding-bottom", 140, 40);
     &__title {
         position: relative;
         display: inline-block;

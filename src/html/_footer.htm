@@ -1,6 +1,6 @@
 <footer class="footer">
     <div class="footer__container">
-        <section class="footer__contacts contacts">
+        <section class="footer__contacts contacts" id="contacts">
             <div class="contacts__info">
                 <h2 class="contacts__title title">Контакты</h2>
                 <p class="contacts__text">Вы всегда можете с нами связаться по телефону или в мессенджерах</p>
@@ -9,7 +9,7 @@
                 <a href="#" class="contacts__link contacts__link_tg">Написать в Telegram</a>
                 <p class="contacts__text">Подписывайтесь на наш <a href="#" class="contacts__link contacts__link_ig">Instagram</a> и следите за новостями</p>
             </div>
-            <form action="#" class="contacts__form contact-form">
+            <form data-dev action="#" class="contacts__form contact-form" data-popup-message="#popup-thanks">
                 <h3 class="contact-form__title">Остались вопросы?</h3>
                 <p class="contact-form__text">Напишите нам и мы обязательно подробно на них ответим.</p>
                 <div class="contact-form__fields">
@@ -30,7 +30,6 @@
                             <span class="checkbox__text">Даю согласие на обработку персональных данных</span>
                         </label>
                     </div>
-
                     <button type="submit" class="contact-form__button button button_pink">Отправить</button>
                 </div>
             </form>   

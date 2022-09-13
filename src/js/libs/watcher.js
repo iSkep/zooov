@@ -2,7 +2,7 @@
 import { isMobile, uniqArray, FLS } from "../files/functions.js";
 import { flsModules } from "../files/modules.js";
 
-// Наблюдатель объектов [всевидещее око]
+// Наблюдатель объектов [всевидящее око]
 // data-watch - можно писать значение для применения кастомного кода
 // data-watch-root - родитель внутри которого налюдать за объектом
 // data-watch-margin - отступ

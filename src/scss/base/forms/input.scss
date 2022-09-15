@@ -8,18 +8,15 @@ textarea {
     resize: none;
 }
 
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+    appearance: none;
+}
+
 .input {
     display: block;
     width: 100%;
     font-size: rem(14);
     border-radius: 8px;
     transition: background-color 0.3s;
-    @media (any-hover: hover) {
-        &:hover {
-            background-color: rgba(234, 209, 208, 0.2);
-        }
-    }
-    &:focus {
-        outline: 1px solid #fff;
-    }
 }

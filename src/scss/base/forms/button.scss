@@ -36,3 +36,57 @@
         transform: scale(0.9);
     }
 }
+
+.social-link {
+    position: relative;
+    padding: 10px 16px 10px 44px;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 140%;
+    color: #fff;
+    background-color: #ab4743;
+    border-radius: 8px;
+    transition: background-color 0.3s;
+    &::before {
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: 10px;
+        width: 24px;
+        height: 24px;
+        transform: translate(0, -50%);
+    }
+    &_wa {
+        &::before {
+            content: "";
+            background: url("../img/footer/whatsapp.svg") center/24px no-repeat;
+        }
+        @media (any-hover: hover) {
+            &:hover {
+                background-color: #c07572;
+            }
+        }
+    }
+    &_tg {
+        &::before {
+            content: "";
+            background: url("../img/footer/telegram.svg") center/24px no-repeat;
+        }
+        @media (any-hover: hover) {
+            &:hover {
+                background-color: #c07572;
+            }
+        }
+    }
+    &_ig {
+        padding: 0;
+        font-size: rem(16);
+        background-color: transparent;
+        border-bottom: 1px solid #fff;
+        border-radius: 0;
+        &::before {
+            content: "";
+            display: none;
+        }
+    }
+}

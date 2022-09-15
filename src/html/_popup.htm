@@ -1,9 +1,67 @@
 <div id="popup-thanks" aria-hidden="true" class="popup">
     <div class="popup__wrapper">
-        <div class="popup__content">
+        <div class="popup__content thanks-popup">
             <button data-close type="button" class="popup__close"></button>
-            <h3 class="popup__title">Спасибо!</h3>
-            <p class="popup__text">Мы ответим вам в ближайшее время.</p>
+            <h3 class="thanks-popup__title popup__title popup__title_align_center">Спасибо!</h3>
+            <p class="popup__text popup__text_align_center">Мы ответим вам в ближайшее время.</p>
+        </div>
+    </div>
+</div>
+
+<div id="popup-calc" aria-hidden="true" class="popup">
+    <div class="popup__wrapper">
+        <div class="popup__content calc-popup">
+            <button data-close type="button" class="popup__close"></button>
+            <div class="calc-popup__info">
+                <h3 class="popup__title calc-popup__title">Рассчет рациона</h3>
+                <div class="calc-popup__social">
+                    <a href="#" class="social-link social-link_wa calc-popup__link">WhatsApp</a>
+                    <a href="#" class="social-link social-link_tg calc-popup__link">Telegram</a>
+                </div>
+                <p class="popup__text calc-popup__text">Заполните информацию и мы свяжемся с вами, чтобы подсказать с подбором рациона для вашего хвостика. Или напишите нам в мессендерах.</p>
+            </div>
+            <form data-dev action="#" class="calc-popup__form contact-form" data-popup-message="#popup-thanks">
+                <div class="contact-form__fields">
+                    <div class="contact-form__block">
+                        <div class="options contact-form__options">
+                            <div class="options__item">
+                                <input id="radio-dog" class="options__input visually-hidden" type="radio" value="dog" name="radio" data-no-focus-classes required>
+                                <label for="radio-dog" class="options__label"><span class="options__text">Взрослая собака</span></label>
+                            </div>
+                            <div class="options__item">
+                                <input id="radio-puppey" class="options__input visually-hidden" type="radio" value="puppey" name="radio" data-no-focus-classes>
+                                <label for="radio-puppey" class="options__label"><span class="options__text">Щенок</span></label>
+                            </div>
+                        </div>
+                        <div class="contact-form__item calc-popup__field">
+                            <input class="contact-form__input contact-form__input_color_grey input" id="input-calc-weight" autocomplete="off" type="number" name="weight" required>
+                            <label for="input-calc-weight" class="contact-form__label contact-form__label_color_grey">Вес (кг)</label>
+                        </div>
+                        <div class="contact-form__item calc-popup__field">
+                            <input class="contact-form__input contact-form__input_color_grey input" id="input-calc-age" autocomplete="off" type="number" name="age" required>
+                            <label for="input-calc-age" class="contact-form__label contact-form__label_color_grey">Возраст</label>
+                        </div>
+                        <div class="contact-form__item contact-form__item_large">
+                            <input class="contact-form__input contact-form__input_color_grey input" id="input-calc-name" autocomplete="off" type="text" name="name" required>
+                            <label for="input-calc-name" class="contact-form__label contact-form__label_color_grey">Ваше имя</label>
+                        </div>
+                    </div>
+                    <div class="contact-form__block contact-form__block_direction_column">
+                        <div class="contact-form__item contact-form__item_basis-auto">
+                            <input class="contact-form__input contact-form__input_color_grey input" id="input-calc-phone" autocomplete="off" type="tel" name="phone" required>
+                            <label for="input-calc-phone" class="contact-form__label contact-form__label_color_grey">Телефон</label>
+                        </div>
+                        <textarea class="calc-popup__textarea contact-form__textarea contact-form__textarea_color_grey input" autocomplete="off" name="message" placeholder="Если у вашего хвостика есть особенности здоровья – напишите об этом..." data-placeholder-nohide data-no-focus-classes></textarea>
+                    </div>
+                    <div class="contact-form__check checkbox">
+                        <input class="checkbox__input visually-hidden" id="calc-checkbox" type="checkbox" value="1" name="accept" data-no-focus-classes required>
+                        <label for="calc-checkbox" class="checkbox__label checkbox__label_border_red">
+                            <span class="checkbox__text checkbox__text_color_grey">Даю согласие на обработку персональных данных</span>
+                        </label>
+                    </div>
+                    <button type="submit" class="contact-form__button button button_red">Расчитать</button>
+                </div>
+            </form>
         </div>
     </div>
 </div>

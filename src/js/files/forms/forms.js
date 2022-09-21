@@ -5,6 +5,7 @@ import { flsModules } from "../modules.js";
 import { isMobile, _slideUp, _slideDown, _slideToggle, FLS } from "../functions.js";
 // Модуль прокрутки к блоку
 import { gotoBlock } from "../scroll/gotoblock.js";
+import { calcPrice } from "../script.js";
 //================================================================================================================================================================================================================================================================================================================================
 
 /*
@@ -24,7 +25,6 @@ export function formFieldsInit(options = { viewPass: false }) {
     }
     document.body.addEventListener("focusin", function (e) {
         const targetElement = e.target;
-        // дополнительно отбираем ближайший label
         const label = targetElement.closest('div').querySelector('label');
         
         if ((targetElement.tagName === 'INPUT' || targetElement.tagName === 'TEXTAREA')) {
@@ -34,7 +34,6 @@ export function formFieldsInit(options = { viewPass: false }) {
             if (!targetElement.hasAttribute('data-no-focus-classes')) {
                 targetElement.classList.add('_form-focus');
                 targetElement.parentElement.classList.add('_form-focus');
-                // доп. добавляем класс активности к label
                 label.classList.add('_form-focus');
             }
             formValidate.removeError(targetElement);
@@ -42,7 +41,6 @@ export function formFieldsInit(options = { viewPass: false }) {
     });
     document.body.addEventListener("focusout", function (e) {
         const targetElement = e.target;
-        // дополнительно отбираем ближайший label
         const label = targetElement.closest('div').querySelector('label');
         if ((targetElement.tagName === 'INPUT' || targetElement.tagName === 'TEXTAREA')) {
             if (targetElement.dataset.placeholder) {
@@ -52,7 +50,6 @@ export function formFieldsInit(options = { viewPass: false }) {
                 targetElement.classList.remove('_form-focus');
                 targetElement.parentElement.classList.remove('_form-focus');
 
-                // удаляем класс активности, если input пуст
                 if (label.classList.contains('_form-focus') && targetElement.value.trim() === '') {
                     label.classList.remove('_form-focus')
                 }
@@ -135,8 +132,10 @@ export let formValidate = {
             let inputs = form.querySelectorAll('input,textarea');
             for (let index = 0; index < inputs.length; index++) {
                 const el = inputs[index];
+                const label = document.querySelector(`[for="${el.id}"]`);
                 el.parentElement.classList.remove('_form-focus');
                 el.classList.remove('_form-focus');
+                label ? label.classList.remove('_form-focus') : null;
                 formValidate.removeError(el);
             }
             let checkboxes = form.querySelectorAll('.checkbox__input');
@@ -236,22 +235,61 @@ export function formSubmit(options = { validate: true }) {
         FLS(`[Формы]: ${message}`);
     }
 }
-/* Модуь формы "колличество" */
+/* Модуль формы "колличество" */
 export function formQuantity() {
+
+    // Валидация ввода
+    const invalidChars = ["-", "e", "+", "E"];
+    const quantityInputs = document.querySelectorAll('[data-quantity-value]');
+    
+    quantityInputs.forEach(input => {
+        input.addEventListener('keydown', (e) => {
+            if (invalidChars.includes(e.key)) {
+                e.preventDefault();
+            }
+        });
+        input.addEventListener('change', () => {
+            input.value = input.value.replace(/[^0-9]/g, '');
+
+            if (isNaN(input.value) || input.value === '') {
+                input.value = +input.dataset.quantityMin || 1;
+            } else if (+input.dataset.quantityMax && +input.dataset.quantityMax < input.value) {
+                input.value = input.dataset.quantityMax;
+            } else if (+input.dataset.quantityMin > input.value) {
+                input.value = input.dataset.quantityMin;
+            }
+
+        calcPrice();
+        });
+    });
+
+    // Отслеживаем кнопки управления
     document.addEventListener("click", function (e) {
         let targetElement = e.target;
-        if (targetElement.closest('.quantity__button')) {
-            let value = parseInt(targetElement.closest('.quantity').querySelector('input').value);
-            if (targetElement.classList.contains('quantity__button_plus')) {
+        if (targetElement.closest('[data-quantity-plus]') || targetElement.closest('[data-quantity-minus]')) {
+            const valueElement = targetElement.closest('[data-quantity]').querySelector('[data-quantity-value]');
+            let value = parseInt(valueElement.value);
+            if (targetElement.hasAttribute('data-quantity-plus')) {
                 value++;
+                if (+valueElement.dataset.quantityMax && +valueElement.dataset.quantityMax < value) {
+                    value = valueElement.dataset.quantityMax;
+                }
             } else {
                 --value;
-                if (value < 1) value = 1;
+                if (+valueElement.dataset.quantityMin) {
+                    if (+valueElement.dataset.quantityMin > value) {
+                        value = valueElement.dataset.quantityMin;
+                    }
+                } else if (value < 1) {
+                    value = 1;
+                }
             }
-            targetElement.closest('.quantity').querySelector('input').value = value;
+            valueElement.value = value;
+            calcPrice();
         }
     });
 }
+
 /* Модуь звездного рейтинга */
 export function formRating() {
     const ratings = document.querySelectorAll('.rating');

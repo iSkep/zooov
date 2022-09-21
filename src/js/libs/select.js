@@ -168,7 +168,7 @@ class SelectConstructor {
         // Добавляем ID селекта
         selectItem.dataset.id = originalSelect.dataset.id;
         // Получаем класс оригинального селекта, создаем модификатор и добавляем его
-        originalSelect.dataset.classModif ? selectItem.classList.add(`select_${originalSelect.dataset.classModif}`) : null;
+        originalSelect.dataset.classModif ? selectItem.classList.add(`${originalSelect.dataset.classModif}__select`) : null;
         // Если множественный выбор, добавляем класс
         originalSelect.multiple ? selectItem.classList.add(this.selectClasses.classSelectMultiple) : selectItem.classList.remove(this.selectClasses.classSelectMultiple);
         // Cтилизация элементов под checkbox (только для multiple)

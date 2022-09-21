@@ -239,4 +239,11 @@
     &__textarea {
         height: 122px;
     }
+    &__checkbox {
+        max-width: 200px;
+        @media (max-width: $tablet) {
+            max-width: 100%;
+            margin-bottom: 16px;
+        }
+    }
 }

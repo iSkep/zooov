@@ -12,6 +12,14 @@
             border: 1px solid $pinkColor;
         }
     }
+    &_small {
+        padding: 12px 30px;
+    }
+    &_text {
+        &_red {
+            color: $redColor;
+        }
+    }
     &_red {
         background-color: $redColor;
         @media (any-hover: hover) {

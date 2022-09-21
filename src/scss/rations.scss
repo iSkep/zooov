@@ -41,9 +41,6 @@
     &__slider {
         @include adaptiveValue("margin-bottom", 80, 40);
     }
-    &__button {
-        color: $redColor;
-    }
     &__calculation {
         display: flex;
         align-items: center;

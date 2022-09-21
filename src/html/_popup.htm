@@ -53,7 +53,7 @@
                         </div>
                         <textarea class="calc-popup__textarea contact-form__textarea contact-form__textarea_color_grey input" autocomplete="off" name="message" placeholder="Если у вашего хвостика есть особенности здоровья – напишите об этом..." data-placeholder-nohide data-no-focus-classes></textarea>
                     </div>
-                    <div class="contact-form__check checkbox">
+                    <div class="checkbox">
                         <input class="checkbox__input visually-hidden" id="calc-checkbox" type="checkbox" value="1" name="accept" data-no-focus-classes required>
                         <label for="calc-checkbox" class="checkbox__label checkbox__label_border_red">
                             <span class="checkbox__text checkbox__text_color_grey">Даю согласие на обработку персональных данных</span>
@@ -62,6 +62,122 @@
                     <button type="submit" class="contact-form__button button button_red">Расчитать</button>
                 </div>
             </form>
+        </div>
+    </div>
+</div>
+
+<div id="popup-desc" aria-hidden="true" class="popup">
+    <div class="popup__wrapper">
+        <div class="popup__content desc-popup">
+            <button data-close type="button" class="popup__close"></button>
+            <div class="desc-popup__image-preview image-preview">
+                <div class="image-preview__main">
+                    <img src="../img/rations/ration-1.jpg" alt="Упаковка корма" class="image-preview__main-img" aria-hidden="true">
+                </div>
+                <ul class="image-preview__list">
+                    <li class="image-preview__item">
+                        <button class="image-preview__button image-preview__button_active" aria-label="Показать изображение 1">
+                            <img src="../img/rations/ration-1.jpg" alt="Упаковка корма" class="image-preview__img" aria-hidden="true">
+                        </button>
+                    </li>
+                    <li class="image-preview__item">
+                        <button class="image-preview__button" aria-label="Показать изображение 2">
+                            <img src="../img/popup/desc-popup_image-1.jpg" alt="Ингредиенты" class="image-preview__img" aria-hidden="true">
+                        </button>
+                    </li>
+                    <li class="image-preview__item">
+                        <button class="image-preview__button" aria-label="Показать изображение 3">
+                            <img src="../img/popup/desc-popup_image-2.jpg" alt="Ингредиенты" class="image-preview__img" aria-hidden="true">
+                        </button>
+                    </li>
+                    <li class="image-preview__item">
+                        <button class="image-preview__button" aria-label="Показать изображение 4">
+                            <img src="../img/popup/desc-popup_image-3.jpg" alt="Ингредиенты" class="image-preview__img" aria-hidden="true">
+                        </button>
+                    </li>
+                </ul>
+            </div>
+            <div class="desc-popup__info">
+                <h3 class="desc-popup__title">Для взрослых собак</h3>
+                <div class="desc-popup__subtitle">Индейка/Говядина</div>
+                <p class="desc-popup__text desc-popup__about">Подходит для ежедвеного кормления. Богат животными белками и Омега-3.</p>
+                <p class="desc-popup__text desc-popup__composition"><span>Состав:</span> Мякоть баранины (46,5%), мясо кролика (23,5%), кости кролика (10%), печень баранины (5%), почки бараньи (2,5%), рубец бараний (2,5%), кабачок (3%), брокколи (3%), семена конопли (2%), шпинат (1%), яблоко (1%), льняное масло, конопляное масло.</p>
+                <p class="desc-popup__text desc-popup__value"><span>Пищевая ценность на 100г: </span>174.9 ккал, белки 16.45, жиры 11.9, углеводы 0.60</p>
+                <div class="desc-popup__weight">700г / 500г / 300г / 150г / 100г</div>
+                <button class="desc-popup__button button button_text_red" data-popup="#popup-order">Заказать</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="popup-order" aria-hidden="true" class="popup">
+    <div class="popup__wrapper">
+        <div class="popup__content order-popup">
+            <button data-close type="button" class="popup__close"></button>
+            <div class="order-popup__img">
+                <img src="../img/rations/ration-1.jpg" alt="Упаковка корма">
+            </div>
+            <form data-dev action="#" class="order-popup__form contact-form" data-popup-message="#popup-order-thanks">
+                <h3 class="order-popup__title">Для взрослых собак</h3>
+                <div class="order-popup__subtitle">Индейка/Говядина</div>
+                <div class="contact-form__fields">
+                    <div class="contact-form__item contact-form__item_large">
+                        <input class="contact-form__input contact-form__input_color_grey input" id="input-order-name" autocomplete="off" type="text" name="name" required>
+                        <label for="input-order-name" class="contact-form__label contact-form__label_color_grey">Имя</label>
+                    </div>
+                    <div class="contact-form__item contact-form__item_large">
+                        <input class="contact-form__input contact-form__input_color_grey input" id="input-order-phone" autocomplete="off" type="tel" name="phone" required>
+                        <label for="input-order-phone" class="contact-form__label contact-form__label_color_grey">Телефон</label>
+                    </div>
+                    <div class="contact-form__item contact-form__item_large">
+                        <input class="contact-form__input contact-form__input_color_grey input" id="input-order-address" autocomplete="off" type="text" name="address" required>
+                        <label for="input-order-address" class="contact-form__label contact-form__label_color_grey">Адрес</label>
+                    </div>
+                    <select id="volume-select" data-class-modif="contact-form" name="volume" data-show-selected>
+                        <option value="700" selected>700г</option>
+                        <option value="500">500г</option>
+                        <option value="300">300г</option>
+                        <option value="150">150г</option>
+                        <option value="100">100г</option>
+                    </select>
+                    <div data-quantity class="quantity contact-form__quantity">
+                        <button class="quantity__button quantity__button_plus" type="button" data-quantity-plus></button>
+                        <div class="quantity__input">
+                            <input id="quantity-select" autocomplete="off" type="number" name="quantity" value="1" data-quantity-value data-no-focus-classes data-quantity-min="1">
+                        </div>
+                        <button class="quantity__button quantity__button_minus" type="button" data-quantity-minus></button>
+                    </div>
+                    <div class="checkbox order-popup__checkbox">
+                        <input class="checkbox__input visually-hidden" id="order-checkbox" type="checkbox" value="1" name="accept" data-no-focus-classes required>
+                        <label for="order-checkbox" class="checkbox__label checkbox__label_border_red">
+                            <span class="checkbox__text checkbox__text_color_grey">Даю согласие на обработку персональных данных</span>
+                        </label>
+                    </div>
+                    <output class="order-popup__price" for="quantity-select volume-select" name="result">700₽</output>
+                    <button type="submit" class="order-popup__button button button_small button_text_red">Оформить заказ</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div id="popup-order-thanks" aria-hidden="true" class="popup">
+    <div class="popup__wrapper">
+        <div class="popup__content order-thanks">
+            <button data-close type="button" class="popup__close"></button>
+            <div class="order-thanks__img">
+                <img src="../img/rations/ration-1.jpg" alt="Упаковка корма">
+            </div>
+            <div class="order-thanks__content">
+                <h3 class="order-thanks__title popup__title">Спасибо!</h3>
+                <p class="popup__text order-thanks__text">
+                    Ваш заказ оформлен и передан менеджеру.
+                    Мы свяжемся с вами для уточнения и подтверждения в ближайшее время.
+                </p>
+                <p class="popup__text order-thanks__text">
+                    Если вы захотите дополнить свой заказ или уточнить какие-то детали – вы сможете это сделать у оператора.
+                </p>
+            </div>
         </div>
     </div>
 </div>

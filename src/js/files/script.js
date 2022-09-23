@@ -68,7 +68,7 @@ function loadDescPopup(selector) {
         subtitle: `${selector.querySelector('.slider-rations__subtitle').textContent}`,
         weight: `${selector.querySelector('.slider-rations__weight').textContent}`,
         mainImageAlt: `${selector.querySelector('.slider-rations__image img').alt}`,
-        images: [`${selector.querySelector('.slider-rations__image img').src}`, `../img/popup/desc-popup_image-1.jpg`, `../img/popup/desc-popup_image-2.jpg`, `../img/popup/desc-popup_image-3.jpg`]
+        images: [`${selector.querySelector('.slider-rations__image img').src}`, `img/popup/desc-popup_image-1.jpg`, `img/popup/desc-popup_image-2.jpg`, `img/popup/desc-popup_image-3.jpg`]
     }
 
     let imagePreviewList = ``;

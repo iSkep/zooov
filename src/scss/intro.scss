@@ -24,18 +24,6 @@
         @include adaptiveValue("max-width", 490, 340);
         @include adaptiveValue("font-size", 54, 44);
         color: #fff;
-        background-image: url("../img/intro/ellipse_animated.svg");
-        background-repeat: no-repeat;
-        background-position-x: 75%;
-        background-position-y: 53%;
-        @include adaptiveValue("background-size", 260, 180);
-        @media (max-width: $tablet) {
-            background-position-x: 80%;
-        }
-        @media (max-width: $mobile) {
-            background-position-x: 0;
-            background-position-y: 56%;
-        }
         span {
             display: block;
             @media (max-width: $mobile) {
@@ -49,5 +37,18 @@
         @include adaptiveValue("font-size", 20, 18);
         line-height: 140%;
         color: #fff;
+    }
+}
+
+.ellipse {
+    position: relative;
+    display: inline-block;
+    &__svg {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        z-index: -1;
+        @include adaptiveValue("width", 260, 180);
+        transform: translate(-50%, -50%);
     }
 }

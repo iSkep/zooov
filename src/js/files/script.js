@@ -63,7 +63,7 @@ function toggleImage(selector) {
 // Заполняем попап с описанием для выбранного рациона
 function loadDescPopup(selector) {
     let data = {
-        name: `${selector.querySelector('.slider-rations__title-link').textContent}`,
+        name: `${selector.querySelector('.slider-rations__title-button').textContent}`,
         text: `${selector.querySelector('.slider-rations__desc').textContent}`,
         subtitle: `${selector.querySelector('.slider-rations__subtitle').textContent}`,
         weight: `${selector.querySelector('.slider-rations__weight').textContent}`,
@@ -102,7 +102,7 @@ function loadDescPopup(selector) {
 // Заполняет попап заказа для выбранного рациона
 function loadOrderPopup(selector) {
     let data = {
-        name: `${selector.querySelector('.slider-rations__title-link').textContent}`,
+        name: `${selector.querySelector('.slider-rations__title-button').textContent}`,
         subtitle: `${selector.querySelector('.slider-rations__subtitle').textContent}`,
         mainImageSrc: `${selector.querySelector('.slider-rations__image img').src}`,
         mainImageAlt: `${selector.querySelector('.slider-rations__image img').alt}`

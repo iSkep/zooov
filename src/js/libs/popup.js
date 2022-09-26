@@ -323,10 +323,10 @@ class Popup {
     }
     // Утсановка хэша
     _setHash() {
-        history.pushState('', '', this.hash);
+        history.replaceState('', '', this.hash);
     }
     _removeHash() {
-        history.pushState('', '', window.location.href.split('#')[0])
+        history.replaceState('', '', window.location.href.split('#')[0])
     }
     _focusCatch(e) {
         const focusable = this.targetOpen.element.querySelectorAll(this._focusEl);

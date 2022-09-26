@@ -97,13 +97,14 @@
             height: 100%;
             margin: auto;
             object-fit: cover;
+            pointer-events: none;
         }
     }
     &__title {
         margin-bottom: rem(7);
-        font-weight: 700;
-        &-link {
+        &-button {
             position: relative;
+            font-weight: 700;
             &::after {
                 content: "";
                 position: absolute;

@@ -93,11 +93,14 @@
             right: 0;
             bottom: 0;
             left: 0;
+            z-index: -1;
             width: 100%;
             height: 100%;
             margin: auto;
             object-fit: cover;
-            pointer-events: none;
+            @media (any-hover: none) {
+                z-index: 0;
+            }
         }
     }
     &__title {
@@ -116,6 +119,9 @@
                 transition: transform 0.5s;
                 transform: scaleX(0);
                 transform-origin: right;
+            }
+            @media (any-hover: none) {
+                pointer-events: none;
             }
             @media (any-hover: hover) {
                 &:hover {
@@ -146,9 +152,9 @@
     .swiper-pagination-bullet {
         background-color: $pinkColor;
         opacity: 1;
-    }
-    .swiper-pagination-bullet-active {
-        background-color: $redColor;
+        &-active {
+            background-color: $redColor !important;
+        }
     }
     .slider-rations__pagination {
         position: relative;

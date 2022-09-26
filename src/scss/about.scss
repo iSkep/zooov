@@ -109,9 +109,9 @@
         background-color: transparent;
         border: 1px solid $redColor;
         opacity: 1;
-    }
-    .swiper-pagination-bullet-active {
-        background-color: $redColor;
+        &-active {
+            background-color: $redColor !important;
+        }
     }
     .slider-about__pagination {
         position: relative;

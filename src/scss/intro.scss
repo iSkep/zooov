@@ -52,3 +52,15 @@
         transform: translate(-50%, -50%);
     }
 }
+
+.ellipse__animation {
+    stroke-dasharray: 625 627;
+    stroke-dashoffset: 626;
+    animation: ellipse-draw 750ms ease-in-out 1500ms forwards;
+}
+
+@keyframes ellipse-draw {
+    100% {
+        stroke-dashoffset: 0;
+    }
+}

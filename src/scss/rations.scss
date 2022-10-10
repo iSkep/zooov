@@ -87,6 +87,7 @@
         width: 280px;
         height: 335px;
         margin-bottom: rem(45);
+        overflow: hidden;
         img {
             position: absolute;
             top: 0;
@@ -98,10 +99,49 @@
             height: 100%;
             margin: auto;
             object-fit: cover;
+            transition: 0.5s;
             @media (any-hover: none) {
                 z-index: 0;
             }
         }
+        @media (any-hover: hover) {
+            &:hover {
+                &::before {
+                    opacity: 1;
+                }
+                .slider-rations__info {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+                img {
+                    transform: scale(1.1);
+                }
+            }
+        }
+        &::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            font-weight: 500;
+            color: #fff;
+            background: rgba($mainColor, 0.4);
+            opacity: 0;
+            transition: 0.5s;
+        }
+    }
+    &__info {
+        position: absolute;
+        bottom: 30px;
+        width: 100%;
+        font-weight: 700;
+        color: #fff;
+        text-align: center;
+        opacity: 0;
+        transition: 0.5s;
+        transform: translateY(30px);
     }
     &__title {
         margin-bottom: rem(7);

@@ -25,7 +25,7 @@ export const images = () => {
         .pipe(
             app.plugins.if(
                 app.isWebP,
-                app.gulp.src(app.path.src.images)
+                app.gulp.src(app.path.src.images, { encoding: false })
             )
         )
         .pipe(
